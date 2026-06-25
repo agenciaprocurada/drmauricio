@@ -46,8 +46,8 @@ const FAQS = [
             Complicações acontecem com quem faz. Tenha em mãos as condutas mais seguras, atualizadas e rápidas para agir com total confiança nos seus atendimentos.
           </p>
           <div class="hero-price" style="margin-top:var(--space-7);">
-            <div style="font-family:var(--font-display);font-weight:700;font-size:clamp(2.1rem,1.5rem+2vw,3rem);line-height:1.05;letter-spacing:-0.02em;color:var(--text-on-dark);"><span style="font-size:0.58em;font-weight:600;">3x de R$</span> 24,94</div>
-            <div style="font-family:var(--font-text);font-size:15px;color:var(--accent-on-dark);margin-top:6px;">ou R$ 69,90 à vista</div>
+            <div style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.4rem, 1.6rem + 3vw, 3.4rem);line-height:1.05;letter-spacing:-0.02em;color:var(--text-on-dark);">3x de R$ 24,94</div>
+            <div style="font-family:var(--font-text);font-size:16px;color:var(--accent-on-dark);margin-top:6px;">ou R$ 69,90 à vista</div>
           </div>
           <div class="hero-actions" style="display:flex;gap:16px;flex-wrap:wrap;margin-top:var(--space-5);">
             <Button variant="primary" size="lg" href={CTA_HREF}>Quero o e-book agora</Button>
@@ -227,6 +227,10 @@ const FAQS = [
   /* Título da oferta menor no mobile — cabe em até 3 linhas */
   @media (max-width: 640px) {
     .offer-title { font-size: clamp(1.5rem, 1rem + 2.8vw, 1.85rem); }
+    /* No mobile: headline, parágrafo e preço do hero centralizados */
+    .hero-title { text-align: center; }
+    .hero-copy p { text-align: center; margin-inline: auto; }
+    .hero-price { text-align: center; margin-top: var(--space-4) !important; }
   }
 </style>
 

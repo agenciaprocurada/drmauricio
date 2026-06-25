@@ -1,0 +1,25 @@
+---
+interface Props {
+  variant?: 'primary' | 'dark' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  fullWidth?: boolean;
+  onDark?: boolean;
+  class?: string;
+}
+const { variant = 'primary', size = 'md', href, fullWidth = false, onDark = false, class: className = '' } = Astro.props;
+const classes = [
+  'btn',
+  `btn--${variant}`,
+  `btn--${size}`,
+  fullWidth ? 'btn--full' : '',
+  onDark ? 'on-dark' : '',
+  className,
+].filter(Boolean).join(' ');
+const Tag = href ? 'a' : 'button';
+---
+<Tag class={classes} href={href}>
+  <slot name="iconLeft" />
+  <span><slot /></span>
+  <slot name="iconRight" />
+</Tag>

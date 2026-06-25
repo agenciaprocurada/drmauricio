@@ -1,0 +1,17 @@
+---
+interface Props {
+  goldRule?: boolean;
+  padding?: string;
+  hover?: boolean;
+  class?: string;
+}
+const { goldRule = false, padding = 'var(--space-6)', hover = true, class: className = '' } = Astro.props;
+const classes = ['card', hover ? 'card--hover' : '', className].filter(Boolean).join(' ');
+---
+<div
+  class={classes}
+  style={`position:relative;background:var(--surface-card);border:1px solid var(--hairline);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:${padding};overflow:hidden;`}
+>
+  {goldRule && <span style="position:absolute;inset-inline:0;top:0;height:3px;background:linear-gradient(90deg, var(--gold-400), var(--gold-600));" />}
+  <slot />
+</div>

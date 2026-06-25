@@ -1,0 +1,19 @@
+---
+import '../styles/design-system.css';
+interface Props { title?: string; }
+const { title = 'Dr. Maurício Araújo — Guia Clínico de Complicações na HOF' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Guia Clínico de Complicações na Harmonização Orofacial — condutas seguras, protocolos atualizados e fluxogramas de conduta rápida, por Dr. Maurício Araújo." />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body class="ds-body">
+    <slot />
+  </body>
+</html>

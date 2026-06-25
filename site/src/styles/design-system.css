@@ -1,0 +1,451 @@
+/* ============================================================
+   Dr. Maurício Araújo — Design System (ported to Astro)
+   Tokens copied verbatim from modelo-claude-design/tokens/*.
+   ============================================================ */
+
+/* ---- FONTS ---- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ---- Petrol / teal (primary dark family) ---- */
+  --petrol-950: #0B1E26;
+  --petrol-900: #112A30;
+  --petrol-800: #173A3C;
+  --petrol-700: #214A4A;
+  --petrol-600: #2F5D58;
+  --petrol-500: #3F7068;
+  --petrol-400: #5F8980;
+  --petrol-300: #94AFA7;
+  --petrol-200: #C3D3CD;
+  --petrol-100: #E4ECE8;
+
+  /* ---- Sage green ---- */
+  --sage-700: #3E5C53;
+  --sage-600: #5E7E72;
+  --sage-500: #72917F;
+  --sage-300: #A8BEB1;
+
+  /* ---- Navy ---- */
+  --navy-900: #13243A;
+  --navy-800: #1B3450;
+
+  /* ---- Steel blue ---- */
+  --steel-600: #456378;
+  --steel-500: #56748A;
+  --steel-400: #6F8BA1;
+
+  /* ---- Champagne gold ---- */
+  --gold-700: #93783F;
+  --gold-600: #B0945A;
+  --gold-500: #C9AF77;
+  --gold-400: #DAC79B;
+  --gold-300: #E6D7B4;
+  --gold-200: #F0E7D1;
+  --gold-100: #F8F3E6;
+
+  /* ---- Warm neutrals / paper ---- */
+  --ivory: #F5F1E8;
+  --paper: #FCFAF5;
+  --sand-200: #EAE3D5;
+  --sand-300: #DCD3C0;
+
+  /* ---- Ink / graphite text ---- */
+  --ink-900: #14272C;
+  --ink-700: #2C3B40;
+  --ink-500: #51625F;
+  --ink-400: #74837F;
+
+  /* ---- Pure-ish ---- */
+  --white: #FFFFFF;
+  --black: #0A1418;
+
+  /* ---- Semantic status (clinical) ---- */
+  --danger: #B23A2E;
+  --danger-soft: #F3E2DE;
+  --success: #2F6B4F;
+  --success-soft: #E2EFE7;
+
+  /* ---- SIGNATURE GRADIENT ---- */
+  --gradient-luxe:
+    radial-gradient(120% 95% at 35% 28%, rgba(110, 142, 126, 0.55), transparent 56%),
+    radial-gradient(90% 90% at 100% 70%, rgba(11, 30, 38, 0.55), transparent 55%),
+    linear-gradient(150deg, #15293D 0%, #1A3A3A 50%, #0B2027 100%);
+  --gradient-cover:
+    radial-gradient(120% 70% at 28% 8%, rgba(110, 142, 126, 0.45), transparent 55%),
+    linear-gradient(155deg, #1C3E3D 0%, #142E33 45%, #0B1E26 100%);
+
+  /* ---- SEMANTIC ALIASES ---- */
+  --surface-page: var(--ivory);
+  --surface-raised: var(--paper);
+  --surface-card: var(--white);
+  --surface-dark: var(--petrol-900);
+  --surface-darkest: var(--petrol-950);
+  --surface-inset: var(--sand-200);
+
+  --text-strong: var(--ink-900);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-faint: var(--ink-400);
+
+  --text-on-dark: #F1ECDF;
+  --text-on-dark-muted: #AEC0BC;
+
+  --accent: var(--gold-500);
+  --accent-strong: var(--gold-700);
+  --accent-on-dark: var(--gold-300);
+  --accent-tint: var(--gold-100);
+  --accent-2: var(--steel-500);
+
+  --brand: var(--petrol-700);
+  --brand-strong: var(--petrol-800);
+
+  --hairline: rgba(20, 39, 44, 0.12);
+  --hairline-strong: rgba(20, 39, 44, 0.22);
+  --hairline-on-dark: rgba(241, 236, 223, 0.16);
+  --hairline-gold: rgba(201, 175, 119, 0.45);
+
+  --focus-ring: rgba(201, 175, 119, 0.6);
+
+  /* ---- TYPOGRAPHY ---- */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-text: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --font-ui: var(--font-text);
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --text-display-xl: clamp(2.6rem, calc(1.4rem + 6vw), 6.25rem);
+  --text-display-l:  clamp(2.2rem, calc(1.5rem + 4vw), 4.5rem);
+  --text-display-m:  clamp(1.85rem, calc(1.3rem + 2.6vw), 3.25rem);
+  --text-display-s:  clamp(1.6rem, calc(1.2rem + 1.6vw), 2.4rem);
+
+  --text-h1: 2.5rem;
+  --text-h2: 2rem;
+  --text-h3: 1.5rem;
+  --text-h4: 1.25rem;
+
+  --text-lead: clamp(1.0625rem, 0.95rem + 0.5vw, 1.3125rem);
+  --text-body: 1.0625rem;
+  --text-small: 0.9375rem;
+  --text-caption: 0.8125rem;
+  --text-eyebrow: 0.75rem;
+
+  --leading-tight: 1.04;
+  --leading-snug: 1.18;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  --tracking-display: -0.015em;
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-eyebrow: 0.22em;
+  --tracking-wide: 0.04em;
+
+  /* ---- SPACING ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --space-section: clamp(4rem, 3rem + 7vw, 9rem);
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+
+  --border-hairline: 1px solid var(--hairline);
+  --border-strong: 1px solid var(--hairline-strong);
+  --border-gold: 1px solid var(--hairline-gold);
+
+  --shadow-xs: 0 1px 2px rgba(20, 39, 44, 0.06);
+  --shadow-sm: 0 2px 8px rgba(20, 39, 44, 0.07);
+  --shadow-md: 0 10px 30px -12px rgba(20, 39, 44, 0.22);
+  --shadow-lg: 0 28px 60px -24px rgba(10, 34, 41, 0.35);
+  --shadow-gold: 0 14px 40px -16px rgba(168, 132, 59, 0.45);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  --container: 1200px;
+  --container-narrow: 760px;
+  --container-wide: 1360px;
+  --gutter: clamp(1.25rem, 0.5rem + 3vw, 3rem);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+  --dur-slow: 480ms;
+
+  color-scheme: light;
+}
+
+/* ---- BASE ---- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body.ds-body, .ds-root {
+  background: var(--surface-page);
+  color: var(--text-body);
+  font-family: var(--font-text);
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  font-weight: var(--weight-regular);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.ds-root h1, .ds-root h2, .ds-root h3, .ds-root h4 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  font-weight: var(--weight-semibold);
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.ds-root p { margin: 0; text-wrap: pretty; }
+.ds-root a:not(.btn) { color: inherit; }
+
+::selection { background: var(--gold-200); color: var(--ink-900); }
+
+.ds-root :focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Prevent horizontal overflow from edge glows / transforms */
+.ds-root { overflow-x: clip; }
+
+.wrap {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ============================================================
+   COMPONENT BEHAVIOUR (CSS replacements for the JSX mouse handlers)
+   ============================================================ */
+
+/* ---- Button ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-text);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.1;
+  border: 1px solid transparent;
+  transition: transform var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out);
+}
+.btn--sm { padding: 10px 18px; font-size: 14px; }
+.btn--md { padding: 15px 28px; font-size: 15px; }
+.btn--lg { padding: 19px 38px; font-size: 16px; }
+.btn--full { width: 100%; }
+
+.btn--primary {
+  background: var(--gold-500);
+  color: var(--petrol-950);
+  border-color: var(--gold-500);
+  box-shadow: var(--shadow-gold);
+}
+.btn--primary:hover { background: var(--gold-600); transform: translateY(-1px); }
+
+.btn--dark {
+  background: var(--petrol-800);
+  color: var(--text-on-dark);
+  border-color: var(--petrol-800);
+  box-shadow: var(--shadow-md);
+}
+.btn--dark:hover { background: var(--petrol-700); transform: translateY(-1px); }
+
+.btn--outline {
+  background: transparent;
+  color: var(--petrol-800);
+  border-color: var(--hairline-strong);
+}
+.btn--outline:hover { background: var(--sand-200); transform: translateY(-1px); }
+.btn--outline.on-dark { color: var(--text-on-dark); border-color: var(--hairline-on-dark); }
+.btn--outline.on-dark:hover { background: rgba(241,236,223,0.08); }
+
+.btn--ghost { background: transparent; color: var(--petrol-700); }
+.btn--ghost:hover { background: var(--sand-200); }
+
+.btn:active { transform: scale(0.98); }
+
+/* ---- FAQ accordion ---- */
+.faq-item { border-bottom: 1px solid var(--hairline); }
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 22px 4px;
+  font-family: var(--font-text);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.faq-icon {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline-gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-strong);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.faq-trigger[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height var(--dur-slow) var(--ease-out), opacity var(--dur-base) var(--ease-out);
+}
+.faq-trigger[aria-expanded="true"] + .faq-panel { max-height: 360px; opacity: 1; }
+.faq-panel p {
+  margin: 0;
+  padding: 0 4px 24px;
+  font-family: var(--font-text);
+  font-size: var(--text-body);
+  color: var(--text-muted);
+  line-height: var(--leading-relaxed);
+  max-width: 62ch;
+}
+
+/* ---- Reveal on scroll ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---- Card hover ---- */
+.card { transition: box-shadow var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out); }
+.card--hover:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+
+/* ---- Image placeholders (replaces <image-slot>) ---- */
+.img-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  padding: 16px;
+  background:
+    repeating-linear-gradient(45deg, rgba(20,39,44,0.025) 0 12px, transparent 12px 24px),
+    var(--sand-200);
+  color: var(--text-faint);
+  font-family: var(--font-text);
+  font-size: 13px;
+}
+
+/* ---- Nav CTA label swap (long on desktop, short on mobile) ---- */
+.nav-cta { white-space: nowrap; }
+.nav-cta-short { display: none; }
+
+/* ============================================================
+   HERO — photo background (Dr. Maurício)
+   ============================================================ */
+.hero {
+  position: relative;
+  color: var(--text-on-dark);
+  background-color: #010607;
+  background-image: url('/topo-mauricio.png');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: top center;
+  background-blend-mode: lighten;
+  overflow: hidden;
+}
+.hero-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 520px;
+  padding-top: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+  padding-bottom: clamp(2.5rem, 1.5rem + 3vw, 4rem);
+}
+.hero-copy { max-width: 560px; }
+
+/* ============================================================
+   RESPONSIVE — mobile review pass
+   ============================================================ */
+@media (max-width: 860px) {
+  .grid-2 { grid-template-columns: minmax(0, 1fr) !important; }
+  .author-grid .author-portrait { max-width: 360px; }
+
+  /* HERO mobile: dedicated portrait artwork (face at top, dark base for copy).
+     The title sits 260px below the nav bar; horizontal paddings (.wrap) stay. */
+  .hero {
+    background-image: url('/topo-mauricio-mobile.png');
+    background-size: auto;
+    background-position: top center;
+  }
+  .hero-inner {
+    align-items: flex-start;
+    min-height: 0;
+    padding-top: 390px;
+    padding-bottom: var(--space-8);
+  }
+  .hero-copy { max-width: none; }
+}
+
+@media (max-width: 600px) {
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; }
+  /* Offer heading is longer than the other section titles — scale it down on phones */
+  .offer-title { font-size: clamp(1.7rem, 1.2rem + 2.5vw, 2.2rem) !important; }
+  .hero-stats { gap: var(--space-5) !important; }
+  .faq-trigger { font-size: 16px; padding: 18px 2px; }
+  .nav-cta-text-full { display: none; }
+
+  /* Nav: keep brand + CTA on a single tidy line */
+  .nav-bar { height: 64px; }
+  .nav-brand-name { font-size: 16px !important; }
+  .nav-brand-sub { font-size: 9.5px !important; letter-spacing: 0.18em !important; }
+  .nav-cta { padding: 9px 16px !important; }
+  .nav-cta-long { display: none; }
+  .nav-cta-short { display: inline; }
+
+  /* Cover: drop the 3D tilt (it overflows the viewport) and center smaller */
+  .ebook-panel { transform: none !important; border-radius: 4px 10px 10px 4px !important; }
+  .hero-cover-box { width: min(280px, 80%) !important; margin: 0 auto; }
+}
+
+@media (max-width: 420px) {
+  .hero-stats { flex-wrap: wrap; }
+}

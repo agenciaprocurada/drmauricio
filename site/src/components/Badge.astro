@@ -1,0 +1,23 @@
+---
+interface Props {
+  tone?: 'gold' | 'petrol' | 'danger' | 'success' | 'neutral';
+  solid?: boolean;
+}
+const { tone = 'gold', solid = false } = Astro.props;
+const tones: Record<string, { soft: string; fg: string; solidBg: string; solidFg: string }> = {
+  gold:    { soft: 'var(--gold-100)',     fg: 'var(--gold-700)',   solidBg: 'var(--gold-500)',  solidFg: 'var(--petrol-950)' },
+  petrol:  { soft: 'var(--petrol-100)',   fg: 'var(--petrol-700)', solidBg: 'var(--petrol-700)',solidFg: 'var(--text-on-dark)' },
+  danger:  { soft: 'var(--danger-soft)',  fg: 'var(--danger)',     solidBg: 'var(--danger)',    solidFg: '#fff' },
+  success: { soft: 'var(--success-soft)', fg: 'var(--success)',    solidBg: 'var(--success)',   solidFg: '#fff' },
+  neutral: { soft: 'var(--sand-200)',     fg: 'var(--ink-700)',    solidBg: 'var(--ink-900)',   solidFg: '#fff' },
+};
+const t = tones[tone] ?? tones.gold;
+const bg = solid ? t.solidBg : t.soft;
+const fg = solid ? t.solidFg : t.fg;
+const border = solid ? 'none' : '1px solid color-mix(in srgb, currentColor 22%, transparent)';
+---
+<span
+  style={`display:inline-flex;align-items:center;gap:6px;font-family:var(--font-text);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:5px 12px;border-radius:var(--radius-pill);background:${bg};color:${fg};border:${border};`}
+>
+  <slot />
+</span>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  onDark?: boolean;
+  align?: 'left' | 'center';
+  rule?: boolean;
+}
+const { onDark = false, align = 'left', rule = true } = Astro.props;
+const color = onDark ? 'var(--accent-on-dark)' : 'var(--accent-strong)';
+const justify = align === 'center' ? 'center' : 'flex-start';
+---
+<span
+  style={`display:inline-flex;align-items:center;gap:12px;font-family:var(--font-text);font-size:var(--text-eyebrow);font-weight:600;letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:${color};justify-content:${justify};`}
+>
+  {rule && <span style="width:26px;height:1px;background:var(--accent);flex:none;" />}
+  <slot />
+</span>

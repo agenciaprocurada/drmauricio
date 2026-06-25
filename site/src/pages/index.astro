@@ -1,0 +1,270 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+import Badge from '../components/Badge.astro';
+import EyebrowLabel from '../components/EyebrowLabel.astro';
+import Card from '../components/Card.astro';
+import FAQItem from '../components/FAQItem.astro';
+import PriceCard from '../components/PriceCard.astro';
+import Icon from '../components/Icon.astro';
+
+const CTA_HREF = 'https://pay.hotmart.com/G99756037V';
+
+const TOPICS = [
+  { icon: 'syringe', title: 'Toxina botulínica', text: 'Intercorrências, condutas e prevenção nas aplicações.' },
+  { icon: 'droplet', title: 'Preenchedores', text: 'Complicações vasculares e manejo correto dos preenchimentos.' },
+  { icon: 'flask-conical', title: 'Hialuronidase', text: 'Uso correto, diluição e protocolos de aplicação.' },
+  { icon: 'shield-alert', title: 'Isquemia & necrose', text: 'Reconhecimento precoce e protocolos de emergência.' },
+];
+
+const OFFER_ITEMS = [
+  'Acesso imediato e vitalício de consulta por 1 ano',
+  'Protocolos internacionais atualizados',
+  'Fluxogramas e tabelas de conduta rápida',
+];
+
+const FAQS = [
+  { q: 'Esse e-Book é indicado para quem?', a: 'Para qualquer profissional que trabalha com procedimentos estéticos na Harmonização Facial, seja iniciante ou avançado. Um guia essencial para agir com segurança nas intercorrências clínicas.', open: true },
+  { q: 'Vou conseguir aplicar na prática o que está no e-Book?', a: 'Sim. O conteúdo é objetivo, com protocolos práticos e linguagem direta, pensado para o dia a dia de consultório, com fluxogramas e tabelas rápidas para consulta.', open: false },
+  { q: 'O e-Book ensina só sobre hialuronidase?', a: 'Não. O guia aborda desde intercorrências com toxina botulínica e complicações com preenchedores até o uso correto da hialuronidase e protocolos para isquemia e necrose. É completo.', open: false },
+  { q: 'Preciso ter experiência prévia para usar o e-Book?', a: 'Não necessariamente. Quem está começando aprende a reconhecer riscos e ter a conduta correta; quem já tem experiência ganha uma referência rápida de protocolos internacionais.', open: false },
+  { q: 'Por quanto tempo terei acesso ao conteúdo?', a: 'O e-Book é seu. Assim que adquirir, o acesso é liberado imediatamente pela Hotmart e você pode consultar sempre que precisar ao longo de 1 ano.', open: false },
+];
+---
+<Layout>
+  <div class="ds-root" style="background:var(--surface-page);">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="reveal hero-copy">
+          <span class="hero-eyebrow"><EyebrowLabel onDark>Guia Clínico · Complicações na HOF</EyebrowLabel></span>
+          <h1 class="hero-title" style="font-family:var(--font-display);font-weight:600;font-size:clamp(1.9rem, 1.3rem + 2.4vw, 3.1rem);line-height:1.08;letter-spacing:-0.015em;color:var(--text-on-dark);margin:20px 0 0;">
+            Domine as<br />intercorrências.<br /><span style="font-style:italic;color:var(--accent-on-dark);">Atenda com segurança.</span>
+          </h1>
+          <p style="font-family:var(--font-text);font-size:var(--text-lead);color:var(--text-on-dark-muted);line-height:1.6;margin:26px 0 0;max-width:46ch;">
+            Complicações acontecem com quem faz. Tenha em mãos as condutas mais seguras, atualizadas e rápidas para agir com total confiança nos seus atendimentos.
+          </p>
+          <div class="hero-price" style="margin-top:var(--space-7);">
+            <div style="font-family:var(--font-display);font-weight:700;font-size:clamp(2.1rem,1.5rem+2vw,3rem);line-height:1.05;letter-spacing:-0.02em;color:var(--text-on-dark);"><span style="font-size:0.58em;font-weight:600;">3x de R$</span> 24,94</div>
+            <div style="font-family:var(--font-text);font-size:15px;color:var(--accent-on-dark);margin-top:6px;">ou R$ 69,90 à vista</div>
+          </div>
+          <div class="hero-actions" style="display:flex;gap:16px;flex-wrap:wrap;margin-top:var(--space-5);">
+            <Button variant="primary" size="lg" href={CTA_HREF}>Quero o e-book agora</Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video" style="background:var(--surface-page);padding:var(--space-section) 0;">
+      <div class="wrap" style="text-align:center;max-width:var(--container-narrow);">
+        <div class="reveal">
+          <EyebrowLabel align="center">Assista antes de começar</EyebrowLabel>
+          <h2 style="font-size:var(--text-display-m);margin:18px auto 0;max-width:20ch;">Entenda o que você vai dominar no guia clínico</h2>
+        </div>
+        <div class="reveal" style="--reveal-delay:100ms;">
+          <div style="position:relative;margin-top:var(--space-7);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--hairline);box-shadow:var(--shadow-lg);background:#010607;">
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="/video-poster.jpg"
+              style="display:block;width:100%;aspect-ratio:16 / 9;object-fit:cover;background:#010607;"
+            >
+              <source src="/video-vsl-drmauricio.mp4" type="video/mp4" />
+              Seu navegador não suporta a reprodução de vídeo.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARN -->
+    <section style="background:var(--surface-page);padding:0 0 var(--space-section);">
+      <div class="wrap">
+        <div class="reveal" style="max-width:var(--container-narrow);">
+          <EyebrowLabel>O que você vai aprender</EyebrowLabel>
+          <h2 style="font-size:var(--text-display-m);margin:18px 0 0;">Direto ao ponto, sem enrolação</h2>
+          <p style="font-family:var(--font-text);font-size:var(--text-lead);color:var(--text-muted);line-height:1.6;margin:18px 0 0;">
+            Um material essencial para quem quer dominar as condutas corretas e agir com total segurança nos atendimentos — com fluxogramas e tabelas rápidas para consulta.
+          </p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:var(--space-5);margin-top:var(--space-7);">
+          {TOPICS.map((t, i) => (
+            <div class="reveal" style={`--reveal-delay:${i * 80}ms;height:100%;`}>
+              <Card class="card-equal">
+                <span style="display:inline-flex;width:50px;height:50px;border-radius:var(--radius-md);align-items:center;justify-content:center;background:var(--gold-100);color:var(--gold-700);border:1px solid var(--hairline-gold);">
+                  <Icon name={t.icon} size={24} color="var(--gold-700)" />
+                </span>
+                <h3 style="font-family:var(--font-display);font-size:22px;font-weight:500;margin:18px 0 8px;color:var(--text-strong);">{t.title}</h3>
+                <p style="font-family:var(--font-text);font-size:15px;color:var(--text-muted);line-height:1.55;margin:0;">{t.text}</p>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTHOR -->
+    <section style="background:var(--surface-inset);padding:var(--space-section) 0;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);">
+      <div class="wrap author-grid grid-2" style="display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:var(--space-8);align-items:center;">
+        <div class="reveal">
+          <div class="author-portrait" style="position:relative;width:100%;aspect-ratio:4 / 5;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--hairline-gold);box-shadow:var(--shadow-md);margin:0 auto;">
+            <img
+              src="/sobre-autor-dr-mauricio.webp"
+              alt="Dr. Maurício Araújo em retrato de terno preto"
+              width="900"
+              height="1350"
+              loading="lazy"
+              style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;"
+            />
+          </div>
+        </div>
+        <div class="reveal" style="--reveal-delay:100ms;">
+          <EyebrowLabel>Sobre o autor</EyebrowLabel>
+          <h2 style="font-size:var(--text-display-m);margin:16px 0 0;">Dr. Maurício Araújo</h2>
+          <p style="font-family:var(--font-text);font-size:var(--text-body);color:var(--text-body);line-height:1.7;margin:20px 0 0;max-width:56ch;">
+            Referência em <strong style="color:var(--text-strong);">Harmonização Orofacial</strong>, com mais de 10 anos de experiência clínica. Especialista em Reabilitação Oral, Implantodontia e Harmonização Facial, mestre em Clínica Odontológica, com formação internacional nos Estados Unidos e Europa.
+          </p>
+          <p style="font-family:var(--font-text);font-size:var(--text-body);color:var(--text-muted);line-height:1.7;margin:14px 0 0;max-width:56ch;">
+            Professor e palestrante desde 2017, credenciado em protocolos exclusivos como Pettit Nose, bioestimuladores, terapias periorbitais e fios faciais.
+          </p>
+          <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:var(--space-6);">
+            <Badge tone="petrol">Mestre em Clínica Odontológica</Badge>
+            <Badge tone="gold">Formação EUA & Europa</Badge>
+            <Badge tone="neutral">Professor desde 2017</Badge>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFER -->
+    <section style="background:var(--gradient-luxe);color:var(--text-on-dark);padding:var(--space-section) 0;">
+      <div class="wrap grid-2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:var(--space-8);align-items:center;">
+        <div class="reveal">
+          <EyebrowLabel onDark>Oferta especial</EyebrowLabel>
+          <h2 class="offer-title" style="font-family:var(--font-display);font-weight:600;font-size:var(--text-display-l);line-height:1.05;letter-spacing:-0.015em;color:var(--text-on-dark);margin:18px 0 0;">
+            Domine as complicações e se torne <span style="font-style:italic;color:var(--accent-on-dark);">referência na HOF</span>
+          </h2>
+          <p style="font-family:var(--font-text);font-size:var(--text-lead);color:var(--text-on-dark-muted);line-height:1.6;margin:22px 0 0;max-width:48ch;">
+            Garanta agora seu acesso ao Guia Clínico de Complicações com um valor especial para profissionais que querem elevar o nível do atendimento estético.
+          </p>
+          <ul style="margin:26px 0 0;padding:0;display:grid;gap:4px;max-width:460px;">
+            {OFFER_ITEMS.map((t) => (
+              <li style="list-style:none;display:flex;gap:12px;align-items:center;padding:8px 0;color:var(--text-on-dark);font-family:var(--font-text);font-size:15px;">
+                <Icon name="check" size={18} color="var(--accent-on-dark)" />{t}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="reveal" style="--reveal-delay:120ms;">
+          <PriceCard />
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="background:var(--surface-page);padding:var(--space-section) 0;">
+      <div class="wrap" style="max-width:var(--container-narrow);">
+        <div class="reveal" style="text-align:center;">
+          <EyebrowLabel align="center">Perguntas frequentes</EyebrowLabel>
+          <h2 style="font-size:var(--text-display-m);margin:18px 0 var(--space-6);">Este e-book vai servir para mim?</h2>
+        </div>
+        <div class="reveal" style="--reveal-delay:80ms;">
+          {FAQS.map((f) => (
+            <FAQItem question={f.q} defaultOpen={f.open}>{f.a}</FAQItem>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section style="background:var(--surface-inset);padding:var(--space-section) 0;text-align:center;border-top:1px solid var(--hairline);">
+      <div class="wrap" style="max-width:var(--container-narrow);">
+        <div class="reveal">
+          <h2 style="font-size:var(--text-display-l);margin:0;">Agir com segurança é o que diferencia <span style="font-style:italic;color:var(--accent-strong);">uma referência</span></h2>
+          <div style="margin-top:var(--space-6);">
+            <Button variant="primary" size="lg" href={CTA_HREF}>Quero meu e-book agora</Button>
+          </div>
+          <p style="margin-top:var(--space-4);font-family:var(--font-text);font-size:14px;color:var(--text-faint);display:inline-flex;gap:8px;align-items:center;">
+            <Icon name="lock" size={15} color="var(--text-faint)" /> Pagamento seguro via Hotmart · acesso imediato
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background:var(--petrol-950);color:var(--text-on-dark-muted);padding:var(--space-7) 0;">
+      <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+        <div>
+          <div style="font-family:var(--font-display);font-size:18px;color:var(--text-on-dark);font-weight:600;">Dr. Maurício Araújo</div>
+          <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent-on-dark);margin-top:4px;">Harmonização Orofacial</div>
+        </div>
+        <p style="font-size:13px;color:var(--text-on-dark-muted);margin:0;max-width:42ch;">
+          © <span id="year">2026</span> · Conteúdo educacional para profissionais da saúde estética. Pagamentos processados com segurança pela Hotmart.
+        </p>
+      </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div id="sticky-cta" style="position:fixed;left:0;right:0;bottom:0;z-index:60;transform:translateY(120%);transition:transform var(--dur-base) var(--ease-out);background:rgba(10,34,41,0.86);backdrop-filter:blur(12px);border-top:1px solid var(--hairline-gold);padding:12px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <div style="color:var(--text-on-dark);font-family:var(--font-text);">
+        <span style="font-size:13px;color:var(--text-on-dark-muted);">3x de </span>
+        <span style="font-family:var(--font-display);font-size:20px;font-weight:600;">R$ 24,94</span>
+        <span class="nav-cta-text-full" style="font-size:13px;color:var(--text-on-dark-muted);"> ou R$ 69,90 à vista</span>
+      </div>
+      <Button variant="primary" size="md" href={CTA_HREF}>Quero o e-book</Button>
+    </div>
+
+  </div>
+</Layout>
+
+<style is:global>
+  /* Boxes de "O que você vai aprender" todos com a mesma altura */
+  .card-equal { height: 100%; }
+
+  /* Título da oferta menor no mobile — cabe em até 3 linhas */
+  @media (max-width: 640px) {
+    .offer-title { font-size: clamp(1.5rem, 1rem + 2.8vw, 1.85rem); }
+  }
+</style>
+
+<script>
+  // Footer year
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  // Sticky mobile CTA reveal on scroll
+  const sticky = document.getElementById('sticky-cta');
+  const onScroll = () => {
+    const y = window.scrollY;
+    if (sticky) {
+      sticky.style.transform = y > 640 ? 'translateY(0)' : 'translateY(120%)';
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    });
+  });
+
+  // Reveal on scroll
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal');
+  if (reduce) {
+    reveals.forEach((el) => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach((el) => io.observe(el));
+  }
+</script>

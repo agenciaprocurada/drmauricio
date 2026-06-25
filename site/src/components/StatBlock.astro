@@ -1,0 +1,19 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  onDark?: boolean;
+  align?: 'left' | 'center';
+}
+const { value, label, onDark = false, align = 'left' } = Astro.props;
+const numColor = onDark ? 'var(--accent-on-dark)' : 'var(--petrol-700)';
+const labelColor = onDark ? 'var(--text-on-dark-muted)' : 'var(--text-muted)';
+---
+<div style={`text-align:${align};`}>
+  <div style={`font-family:var(--font-display);font-weight:500;font-size:var(--text-display-s);line-height:1;letter-spacing:var(--tracking-display);color:${numColor};`}>
+    {value}
+  </div>
+  <div style={`margin-top:10px;font-family:var(--font-text);font-size:var(--text-small);color:${labelColor};letter-spacing:0.01em;`}>
+    {label}
+  </div>
+</div>

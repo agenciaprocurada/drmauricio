@@ -1,0 +1,18 @@
+# Dependências
+node_modules/
+
+# Build / cache
+site/dist/
+site/.astro/
+
+# Assets-fonte e referências (não publicados)
+_uploads/
+modelo-claude-design/
+
+# Config local da ferramenta
+.claude/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log

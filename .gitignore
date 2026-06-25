@@ -2,8 +2,8 @@
 node_modules/
 
 # Build / cache
-site/dist/
-site/.astro/
+dist/
+.astro/
 
 # Assets-fonte e referências (não publicados)
 _uploads/

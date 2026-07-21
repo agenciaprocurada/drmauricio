@@ -1,0 +1,70 @@
+---
+// Meta Pixel — inicialização. Renderiza no <head> (part="head") ou o
+// fallback <noscript> no <body> (part="noscript"), já que <noscript> com
+// <img> não é HTML válido dentro do <head>.
+// Advanced Matching limitado a external_id: a página não coleta e-mail/telefone.
+// Ver src/scripts/fop-tracking.ts para os eventos do funil.
+interface Props { pixelId?: string; part?: 'head' | 'noscript'; }
+const { pixelId = '1537267897256406', part = 'head' } = Astro.props;
+---
+{part === 'head' && (
+<script is:inline define:vars={{ pixelId }}>
+  (function () {
+    var KEY = 'fop_xid';
+    var YEAR = 60 * 60 * 24 * 365;
+
+    function readCookie(name) {
+      var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return m ? m.pop() : '';
+    }
+    function writeCookie(name, value) {
+      document.cookie = name + '=' + value + ';path=/;max-age=' + YEAR + ';SameSite=Lax';
+    }
+
+    // external_id persistido em cookie + localStorage (dupla camada),
+    // re-hidratado a cada visita para manter o mesmo usuário entre sessões.
+    var xid = '';
+    try { xid = localStorage.getItem(KEY) || ''; } catch (e) {}
+    if (!xid) xid = readCookie(KEY);
+    if (!xid) {
+      xid = (window.crypto && crypto.randomUUID)
+        ? crypto.randomUUID()
+        : 'xid-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 12);
+    }
+    try { localStorage.setItem(KEY, xid); } catch (e) {}
+    writeCookie(KEY, xid);
+
+    // event_id único por evento — o CAPI (quando existir) deve reenviar
+    // este mesmo id para o Meta deduplicar client x server.
+    window.__fopEventId = function () {
+      return (window.crypto && crypto.randomUUID)
+        ? crypto.randomUUID()
+        : 'ev-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 12);
+    };
+    window.__fopExternalId = xid;
+
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', pixelId, { external_id: xid });
+    fbq('track', 'PageView', {}, { eventID: window.__fopEventId() });
+  })();
+</script>
+)}
+{part === 'noscript' && (
+  <noscript>
+    <img
+      height="1"
+      width="1"
+      style="display:none"
+      src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
+      alt=""
+    />
+  </noscript>
+)}

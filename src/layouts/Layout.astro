@@ -1,5 +1,6 @@
 ---
 import '../styles/design-system.css';
+import MetaPixel from '../components/MetaPixel.astro';
 interface Props { title?: string; }
 const { title = 'Dr. Maurício Araújo — Guia Clínico de Complicações na HOF' } = Astro.props;
 ---
@@ -12,8 +13,10 @@ const { title = 'Dr. Maurício Araújo — Guia Clínico de Complicações na HO
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <MetaPixel part="head" />
   </head>
   <body class="ds-body">
+    <MetaPixel part="noscript" />
     <slot />
   </body>
 </html>

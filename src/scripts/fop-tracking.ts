@@ -85,3 +85,43 @@ document.addEventListener('click', (e) => {
   if (!link) return;
   track('InitiateCheckout', PRICE);
 });
+
+// --- Repasse de origem para o checkout Hotmart ------------------------------
+// O anúncio manda utm_* e fbclid para a LP; o checkout é outro domínio e
+// perderia isso. Aqui os parâmetros são lidos da URL (com fallback na
+// sessionStorage, para quem recarrega a página sem eles) e acrescentados a
+// todos os links da Hotmart, mantendo o sck fixo já presente no href.
+//   utm_*  -> aparecem na origem da venda no relatório da Hotmart.
+//   fbclid -> permite ao pixel da Hotmart montar o _fbc e casar o Purchase
+//             com o clique do anúncio.
+const FORWARD_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'fbclid'];
+const FORWARD_STORE = 'fop_origin';
+
+function readOrigin(): Record<string, string> {
+  const fromUrl: Record<string, string> = {};
+  const qs = new URLSearchParams(window.location.search);
+  for (const k of FORWARD_KEYS) {
+    const v = qs.get(k);
+    if (v) fromUrl[k] = v;
+  }
+  let stored: Record<string, string> = {};
+  try { stored = JSON.parse(sessionStorage.getItem(FORWARD_STORE) || '{}'); } catch {}
+  const merged = { ...stored, ...fromUrl };
+  try { sessionStorage.setItem(FORWARD_STORE, JSON.stringify(merged)); } catch {}
+  return merged;
+}
+
+function forwardOriginToCheckout() {
+  const origin = readOrigin();
+  const keys = Object.keys(origin);
+  if (!keys.length) return;
+  document.querySelectorAll<HTMLAnchorElement>('a[href*="pay.hotmart.com"]').forEach((a) => {
+    try {
+      const url = new URL(a.href);
+      for (const k of keys) url.searchParams.set(k, origin[k]);
+      a.href = url.toString();
+    } catch {}
+  });
+}
+
+forwardOriginToCheckout();

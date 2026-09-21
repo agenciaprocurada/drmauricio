@@ -45,6 +45,7 @@ Landing page estática de venda do e-book **"Guia Clínico de Complicações na 
 
 - Cada evento leva um `event_id` único (`window.__fopEventId()`) — necessário para deduplicar caso o CAPI seja adicionado depois.
 - `external_id` persistido em cookie + localStorage (`fop_xid`).
+- Repasse de origem para o checkout: `utm_*` e `fbclid` da URL da LP são acrescentados a todos os links da Hotmart (fallback em `sessionStorage` `fop_origin`). Os UTMs devem vir configurados no anúncio (Meta): `utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_term={{adset.name}}&utm_content={{ad.name}}`.
 - **Não implementado:** CAPI (site é estático, sem servidor) e `Purchase` / `AddPaymentInfo` (dependem de configurar o pixel na Hotmart).
 - Advanced Matching está limitado a `external_id` — a página não coleta e-mail nem telefone.
 

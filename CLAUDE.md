@@ -26,7 +26,7 @@ Landing page estática de venda do e-book **"Guia Clínico de Complicações na 
 
 - Todo o conteúdo é em **português (pt-BR)**.
 - Preços e CTA são hard-coded no `index.astro`:
-  - CTA / checkout: `https://pay.hotmart.com/G99756037V`
+  - CTA / checkout: `https://pay.hotmart.com/G99756037V?sck=lp-nova` (o `sck` identifica a origem da venda no relatório da Hotmart; a LP antiga `/ebook` não envia).
   - Preço atual: 3x de R$ 24,94 ou R$ 69,90 à vista.
 - Use os tokens do design system (`var(--...)`) em vez de valores fixos de cor/espaçamento.
 

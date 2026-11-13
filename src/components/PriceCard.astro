@@ -2,9 +2,12 @@
 import Button from './Button.astro';
 interface Props {
   badge?: string;
-  anchorPrice?: string;
+  anchorPrice?: string | null; // null esconde a linha "De ... por"
+  anchorPrefix?: string;
+  anchorSuffix?: string;
   installments?: string;
-  cashPrice?: string;
+  cashPrice?: string | null; // null esconde a linha abaixo do preço
+  cashPrefix?: string;
   note?: string;
   ctaLabel?: string;
   ctaHref?: string;
@@ -12,8 +15,11 @@ interface Props {
 const {
   badge = 'Acesso imediato',
   anchorPrice = 'R$ 97,00',
+  anchorPrefix = 'De',
+  anchorSuffix = 'por',
   installments = '3x de R$ 24,94',
   cashPrice = 'R$ 69,90 à vista',
+  cashPrefix = 'ou',
   note = 'Acesso imediato via Hotmart · 1 ano de acesso',
   ctaLabel = 'Quero meu e-book agora',
   ctaHref = 'https://pay.hotmart.com/G99756037V?sck=lp-nova',
@@ -26,16 +32,20 @@ const {
     {badge}
   </span>
 
-  <div style="margin-top:var(--space-6);font-family:var(--font-text);font-size:15px;color:var(--text-on-dark-muted);">
-    De <span style="text-decoration:line-through;">{anchorPrice}</span> por
-  </div>
+  {anchorPrice ? (
+    <div style="margin-top:var(--space-6);font-family:var(--font-text);font-size:15px;color:var(--text-on-dark-muted);">
+      {anchorPrefix} <span style="text-decoration:line-through;">{anchorPrice}</span> {anchorSuffix}
+    </div>
+  ) : null}
 
-  <div style="font-family:var(--font-display);font-weight:600;font-size:clamp(2.4rem, 1.6rem + 3vw, 3.4rem);line-height:1.05;letter-spacing:-0.02em;color:var(--text-on-dark);margin-top:4px;">
+  <div style={`font-family:var(--font-display);font-weight:600;font-size:clamp(2.4rem, 1.6rem + 3vw, 3.4rem);line-height:1.05;letter-spacing:-0.02em;color:var(--text-on-dark);margin-top:${anchorPrice ? '4px' : 'var(--space-6)'};`}>
     {installments}
   </div>
-  <div style="margin-top:6px;font-family:var(--font-text);font-size:16px;color:var(--accent-on-dark);">
-    ou {cashPrice}
-  </div>
+  {cashPrice ? (
+    <div style="margin-top:6px;font-family:var(--font-text);font-size:16px;color:var(--accent-on-dark);">
+      {cashPrefix} {cashPrice}
+    </div>
+  ) : null}
 
   <div style="margin:var(--space-6) 0 var(--space-5);">
     <Button variant="primary" size="lg" fullWidth href={ctaHref}>{ctaLabel}</Button>

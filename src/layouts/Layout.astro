@@ -2,15 +2,20 @@
 import '../styles/design-system.css';
 import MetaPixel from '../components/MetaPixel.astro';
 import Clarity from '../components/Clarity.astro';
-interface Props { title?: string; noindex?: boolean; }
-const { noindex = false, title = 'Dr. Maurício Araújo — Guia Clínico de Complicações na HOF' } = Astro.props;
+interface Props { title?: string; noindex?: boolean; lang?: string; description?: string; }
+const {
+  noindex = false,
+  lang = 'pt-BR',
+  title = 'Dr. Maurício Araújo — Guia Clínico de Complicações na HOF',
+  description = 'Guia Clínico de Complicações na Harmonização Orofacial — condutas seguras, protocolos atualizados e fluxogramas de conduta rápida, por Dr. Maurício Araújo.',
+} = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Guia Clínico de Complicações na Harmonização Orofacial — condutas seguras, protocolos atualizados e fluxogramas de conduta rápida, por Dr. Maurício Araújo." />
+    <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />

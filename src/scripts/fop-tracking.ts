@@ -8,14 +8,21 @@
 //   InitiateCheckout-> clique em qualquer CTA da Hotmart
 //   AddPaymentInfo / Purchase -> vêm da Hotmart, não daqui.
 
+// Cada página pode sobrescrever produto e preço/moeda definindo, ANTES deste script,
+//   window.__fopConfig = { product: {...}, price: { value, currency } }
+// (ex.: a versão em espanhol vende em euro). Sem config, vale o padrão em reais.
+type FopConfig = { product?: Record<string, unknown>; price?: { value: number; currency: string } };
+const cfg: FopConfig = (window as unknown as { __fopConfig?: FopConfig }).__fopConfig ?? {};
+
 const PRODUCT = {
   content_name: 'Guia Clínico de Complicações na HOF',
   content_category: 'E-book / Harmonização Orofacial',
   content_type: 'product',
   content_ids: ['ebook-hof-guia-clinico'],
+  ...cfg.product,
 };
 
-const PRICE = { value: 69.9, currency: 'BRL' };
+const PRICE = cfg.price ?? { value: 69.9, currency: 'BRL' };
 
 type Win = Window & {
   fbq?: (...args: unknown[]) => void;

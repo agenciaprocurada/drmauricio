@@ -11,8 +11,8 @@ import Icon from '../components/Icon.astro';
 // lp-v3-esp — nueva versión en español, con la estructura de una página de venta larga:
 // promesa, dolor, vistas previas reales del PDF, contenido, comparación, público, oferta, garantía, pasos y FAQ.
 // Mismo producto y mismo checkout que /lp-v2-esp. O sck identifica a origem da venda no relatório da Hotmart.
-const CTA_HREF = 'https://pay.hotmart.com/Y108465646A?sck=lp-v3-esp';
-const PRICE_LABEL = '17 €';
+const CTA_HREF = 'https://pay.hotmart.com/Y108465646A?off=ciqiolib&sck=lp-v3-esp';
+const PRICE_LABEL = '10 €';
 
 // Garantía: solo se muestra si el plazo está confirmado en Hotmart para ESTE producto. null = la sección no aparece.
 const GUARANTEE_DAYS: number | null = null;
@@ -83,7 +83,7 @@ const FAQS = [
   { q: '¿Necesito experiencia previa?', a: 'No necesariamente. Quien está empezando aprende a reconocer los riesgos y a seguir la conducta correcta; quien ya tiene experiencia gana una referencia rápida de protocolos.', open: false },
   { q: '¿Es físico o digital?', a: 'Digital. Recibe el PDF por acceso en Hotmart y puede abrirlo en el móvil, la tablet o el ordenador.', open: false },
   { q: '¿Cuánto tiempo tendré acceso?', a: 'En cuanto lo adquiera, el acceso se libera de inmediato a través de Hotmart y podrá consultarlo siempre que lo necesite durante 1 año.', open: false },
-  { q: '¿El pago es único?', a: 'Sí. Es un pago único de 17 €, sin mensualidades ni suscripción. El pago se realiza en el entorno seguro de Hotmart.', open: false },
+  { q: '¿El pago es único?', a: 'Sí. Es un pago único de 10 €, sin mensualidades ni suscripción. El pago se realiza en el entorno seguro de Hotmart.', open: false },
 ];
 ---
 <Layout
@@ -100,7 +100,7 @@ const FAQS = [
         content_category: 'E-book / Armonización Orofacial',
         content_ids: ['ebook-hof-guia-clinico-es'],
       },
-      price: { value: 17, currency: 'EUR' },
+      price: { value: 10, currency: 'EUR' },
     };
   </script>
   <div class="ds-root" style="background:var(--surface-page);">

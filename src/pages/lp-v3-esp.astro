@@ -125,7 +125,7 @@ const FAQS = [
             <li><Icon name="check" size={18} color="var(--accent-on-dark)" />Consulta rápida desde el móvil, en plena consulta</li>
           </ul>
           <div class="v3-hero-cta">
-            <Button variant="primary" size="lg" href={CTA_HREF}>Quiero el e-book ahora</Button>
+            <Button variant="primary" size="lg" href="#oferta">Quiero el e-book ahora</Button>
             <p class="hero2-note"><Icon name="lock" size={14} color="currentColor" /> {PRICE_LABEL} · pago único · acceso inmediato</p>
           </div>
         </div>
@@ -171,7 +171,7 @@ const FAQS = [
           <button type="button" class="v3-nav v3-next" aria-label="Siguiente">→</button>
         </div>
         <div class="reveal" style="text-align:center;margin-top:var(--space-6);">
-          <Button variant="primary" size="lg" href={CTA_HREF}>Quiero el e-book ahora</Button>
+          <Button variant="primary" size="lg" href="#oferta">Quiero el e-book ahora</Button>
         </div>
       </div>
     </section>
@@ -364,7 +364,7 @@ const FAQS = [
           ))}
         </div>
         <div class="reveal" style="text-align:center;margin-top:var(--space-7);">
-          <Button variant="primary" size="lg" href={CTA_HREF}>Quiero el e-book ahora</Button>
+          <Button variant="primary" size="lg" href="#oferta">Quiero el e-book ahora</Button>
         </div>
       </div>
     </section>
@@ -390,7 +390,7 @@ const FAQS = [
         <div class="reveal">
           <h2 style="font-size:var(--text-display-l);margin:0;">Su preparación empieza <span style="font-style:italic;color:var(--accent-strong);">antes de la complicación</span></h2>
           <div style="margin-top:var(--space-6);">
-            <Button variant="primary" size="lg" href={CTA_HREF}>Quiero mi e-book ahora</Button>
+            <Button variant="primary" size="lg" href="#oferta">Quiero mi e-book ahora</Button>
           </div>
           <p style="margin-top:var(--space-4);font-family:var(--font-text);font-size:14px;color:var(--text-faint);display:inline-flex;gap:8px;align-items:center;">
             <Icon name="lock" size={15} color="var(--text-faint)" /> Pago seguro con Hotmart · acceso inmediato
@@ -418,13 +418,16 @@ const FAQS = [
         <span style="font-family:var(--font-display);font-size:20px;font-weight:600;">{PRICE_LABEL}</span>
         <span class="nav-cta-text-full" style="font-size:13px;color:var(--text-on-dark-muted);"> · pago único</span>
       </div>
-      <Button variant="primary" size="md" href={CTA_HREF}>Quiero el e-book</Button>
+      <Button variant="primary" size="md" href="#oferta">Quiero el e-book</Button>
     </div>
 
   </div>
 </Layout>
 
 <style is:global>
+  html { scroll-behavior: smooth; }
+  #oferta { scroll-margin-top: 16px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   .card-equal { height: 100%; }
 
   .v3-top {

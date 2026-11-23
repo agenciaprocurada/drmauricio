@@ -112,21 +112,25 @@ const FAQS = [
     <section class="hero2">
       <div class="wrap hero2-inner">
         <div class="reveal hero2-copy">
-          <EyebrowLabel onDark>Complicaciones en la Armonización Facial</EyebrowLabel>
+          <div class="v3-eyebrow-hero"><EyebrowLabel onDark>Complicaciones en la Armonización Facial</EyebrowLabel></div>
           <h1 class="hero2-title">
             Si ocurre una complicación en su próxima consulta, <span style="font-style:italic;color:var(--accent-on-dark);">¿sabrá cómo actuar?</span>
           </h1>
           <p class="hero2-lead">
             Protocolos de actuación, signos de alerta, un flujograma clínico, una tabla de medicamentos y un consentimiento informado, reunidos por el Dr. Maurício Araújo.
           </p>
+          <img class="v3-mock-m" src="/mockup-ebook.webp" alt="Portada del e-book en un móvil y en versión impresa" width="720" height="768" fetchpriority="high" />
           <ul class="v3-bullets">
             <li><Icon name="check" size={18} color="var(--accent-on-dark)" />Qué hacer en los primeros minutos de una isquemia</li>
-            <li><Icon name="check" size={18} color="var(--accent-on-dark)" />Toxina botulínica y ácido hialurónico, complicación por complicación</li>
-            <li><Icon name="check" size={18} color="var(--accent-on-dark)" />Consulta rápida desde el móvil, en plena consulta</li>
+            <li><Icon name="check" size={18} color="var(--accent-on-dark)" />Toxina y rellenos, complicación por complicación</li>
+            <li><Icon name="check" size={18} color="var(--accent-on-dark)" />Consulta rápida desde el móvil</li>
           </ul>
           <div class="v3-hero-cta">
+            <div class="v3-pricerow">
+              <span class="v3-price">{PRICE_LABEL}</span>
+              <span class="v3-price-note"><Icon name="lock" size={13} color="currentColor" /> pago único · acceso inmediato</span>
+            </div>
             <Button variant="primary" size="lg" href="#oferta">Quiero el e-book ahora</Button>
-            <p class="hero2-note"><Icon name="lock" size={14} color="currentColor" /> {PRICE_LABEL} · pago único · acceso inmediato</p>
           </div>
         </div>
         <div class="reveal hero2-media" style="--reveal-delay:80ms;text-align:center;">
@@ -457,7 +461,17 @@ const FAQS = [
     font-family: var(--font-text); font-size: 15.5px; color: var(--text-on-dark); line-height: 1.45;
   }
   .v3-bullets li svg { flex: none; margin-top: 2px; }
-  .v3-hero-cta { margin-top: 26px; }
+  .v3-hero-cta { margin-top: 22px; }
+  .v3-mock-m { display: none; }
+  .v3-pricerow { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+  .v3-price {
+    font-family: var(--font-display); font-weight: 600; font-size: 44px; line-height: 1;
+    color: var(--accent-on-dark);
+  }
+  .v3-price-note {
+    font-family: var(--font-text); font-size: 13.5px; color: var(--text-on-dark-muted);
+    display: inline-flex; gap: 6px; align-items: center;
+  }
   .hero2-note {
     margin: 12px 0 0; font-family: var(--font-text); font-size: 13px; color: var(--text-on-dark-muted);
     display: inline-flex; gap: 6px; align-items: center;
@@ -510,10 +524,18 @@ const FAQS = [
   @media (max-width: 860px) {
     .hero2-inner { grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
     .hero2-title, .hero2-lead { text-align: center; }
-    .hero2-lead { margin-inline: auto; font-size: 15px; }
-    .hero2-copy .eyebrow, .hero2-copy > span { justify-content: center; }
+    .hero2-lead { display: none; }
+    .v3-eyebrow-hero { display: none; }
     .hero2-copy { text-align: center; }
-    .v3-bullets li { text-align: left; }
+    .hero2-media { display: none; }
+    .hero2-inner { padding-top: 20px; padding-bottom: 28px; }
+    .hero2 .hero2-title { margin-top: 0; font-size: 1.7rem; }
+    .v3-mock-m { display: block; width: 210px; height: auto; margin: 14px auto 0; }
+    .v3-bullets { margin-top: 14px; gap: 6px; justify-content: center; }
+    .v3-bullets li { text-align: left; font-size: 15px; }
+    .v3-pricerow { justify-content: center; flex-wrap: wrap; row-gap: 4px; }
+    .v3-hero-cta { margin-top: 18px; }
+    .v3-top { font-size: 11px; padding: 8px 12px; }
     .v3-compare { grid-template-columns: minmax(0, 1fr); }
     .v3-nav { display: none; }
   }
